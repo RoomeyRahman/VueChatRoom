@@ -15,18 +15,18 @@
 
 <script>
 export default {
-  name: 'Welcome',
-  data () {
-    return {
-      name: null
+    name: "Welcome",
+    data () {
+        return {
+            name: null
+        };
+    },
+    method: {
+        enterChat () {
+            console.log(this.name);
+        }
     }
-  },
-  method: {
-    enterChat(){
-      console.log(this.name)
-    }
-  }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

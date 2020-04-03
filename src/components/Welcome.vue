@@ -4,8 +4,9 @@
       <div class="card-content center-align">
         <h2 class="teal-text">Welcome</h2>
         <form @submit.prevent="enterChat">
-          <label for="name">Your Name: </label>
-          <input type="text" name="name" v-model="name">
+          <label for="userName">Your Name: </label>
+          <input type="text" name="userName" v-model="userName">
+          <p class="red-text" v-if="feedback">{{ feedback }}</p>
           <button class="btn teal">Enter ChatRoom</button>
         </form>
       </div>
@@ -18,12 +19,17 @@ export default {
     name: "Welcome",
     data () {
         return {
-            name: null
-        };
+            userName: null,
+            feedback: null
+        }
     },
     methods: {
         enterChat: function () {
-            console.log(this.name);
+            if (this.userName) {
+                this.$router.push({ name: "Chat", params: { name: this.userName } });
+            } else {
+                this.feedback = "Please enter your name to join chatroom";
+            }
         }
     }
 };

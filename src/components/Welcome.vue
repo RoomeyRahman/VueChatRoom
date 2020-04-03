@@ -18,11 +18,11 @@ export default {
     name: "Welcome",
     data () {
         return {
-            name: ""
+            name: null
         };
     },
-    method: {
-        enterChat: async function () {
+    methods: {
+        enterChat: function () {
             console.log(this.name);
         }
     }
